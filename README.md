@@ -6,3 +6,8 @@
 [Stoic Reflections](https://stoicreflections.com)
 
 This is a self filling calendar based on the design used [here](https://stoicreflections.com/collections/memento-mori-life-calendar-chart-poster-frame). Feel free to check out their website and their calendars!
+
+### Preview
+<div style="text-align:center">
+  <img src="https://raw.githubusercontent.com/afonsocrg/mementoMori/master/preview.PNG" />
+</div>

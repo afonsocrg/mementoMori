@@ -3,6 +3,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <title>Memento Mori Calendar</title>
     <meta name="description" content="The HTML5 Herald" />
@@ -17,6 +20,10 @@
         --rect-gap: 8px;
         --week-gap: 5px;
         --week-size: 8px;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
       }
 
       @page {
@@ -85,8 +92,9 @@
       }
 
       .year-label {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 600;
+        text-align: center;
         margin: 0 0 8px;
       }
     </style>

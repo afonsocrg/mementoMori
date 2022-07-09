@@ -75,9 +75,12 @@
       }
 
       .week-cell {
-        width: var(--week-size);
-        height: var(--week-size);
+        align-items: center;
         border: 1px solid var(--dark-gray);
+        display: inline-flex;
+        height: var(--week-size);
+        justify-content: center;
+        width: var(--week-size);
       }
 
       .year-cell {
@@ -96,6 +99,48 @@
         font-weight: 600;
         text-align: center;
         margin: 0 0 8px;
+      }
+
+      /* Tooltips */
+      [data-tooltip] {
+        position: relative;
+        cursor: default;
+      }
+
+      [data-tooltip]:hover::before {
+        content: attr(data-tooltip);
+        font-size: 14px;
+        text-align: left;
+        position: absolute;
+        display: block;
+        left: 50%;
+        min-width: 60px;
+        max-width: 160px;
+        width: max-content;
+        bottom: calc(100% + 10px);
+        transform: translate(-50%);
+        animation: fade-in 300ms ease;
+        background: #272727;
+        border-radius: 4px;
+        padding: 10px 10px 14px;
+        color: #ffffff;
+        z-index: 1;
+      }
+
+      [data-tooltip]:hover::after {
+        content: "";
+        position: absolute;
+        display: block;
+        left: 50%;
+        width: 0;
+        height: 0;
+        bottom: calc(100% + 6px);
+        margin-left: -6px;
+        border: 1px solid black;
+        border-color: #272727 transparent transparent transparent;
+        border-width: 4px 6px 0;
+        animation: fade-in 300ms ease;
+        z-index: 1;
       }
     </style>
   </head>
@@ -160,6 +205,15 @@
             for(let j = 0; j < 4; j++) {
                 week_div = document.createElement("div");
                 week_div.classList.add("week-cell");
+
+                // Remove this if in the future, it's for experimenting purposes only (we don't want all of the cells to be filled)
+                if ( i == 3 && j == 3) {
+                  week_div.classList.add("has-tooltip");
+
+                  // TODO: This data will come from json entries
+                  week_div.dataset.tooltip = "I was born, and this is a bit longer text that fits perfectly";
+                  week_div.insertAdjacentHTML('beforeend', "👶");
+                }
 
                 month_div.appendChild(week_div);
             }

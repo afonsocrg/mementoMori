@@ -1,61 +1,61 @@
 :root {
-    --rows-per-rect: 10;
-    --cols-per-rect: 26;
+  --rows-per-rect: 10;
+  --cols-per-rect: 26;
 
-    --dark-gray: #333333;
-    --rect-gap: 10px;
-    --week-gap: 5px;
-    --week-size: 10px;
+  --dark-gray: #333;
+  --rect-gap: 10px;
+  --week-gap: 5px;
+  --week-size: 10px;
 }
 
 @page {
-    size: A4 portrait;
+  size: a4 portrait;
 }
 
 @media print {
-    .week-cell {
-        -webkit-print-color-adjust: exact;
-    }
+  .week-cell {
+    -webkit-print-color-adjust: exact;
+  }
 }
 
 .title {
-    color: var(--dark-gray);
-    text-align: center;
-    margin: 0px 0px 25px 0px;
-    font-size: 50px;
-    font-weight: 700;
+  color: var(--dark-gray);
+  font-size: 50px;
+  font-weight: 700;
+  margin: 0 0 25px;
+  text-align: center;
 }
 
 #quote {
-    margin: 30px 20px 20px 20px;
-    float: footnote;
+  float: footnote;
+  margin: 30px 20px 20px;
 }
 
 #calendar {
-    /* https://github.com/afonsocrg/mementoMori/issues/1 */
-    /*width: 0px;*/ /* make it fit its content. TODO: calculate it dynamically */
-    width: 90vw;
-    display: grid;
-    grid-gap: var(--rect-gap);
-    grid-template-columns: repeat(2, auto);
+  /* https://github.com/afonsocrg/mementoMori/issues/1 */
+  /* width: 0px; */ /* make it fit its content. TODO: calculate it dynamically */
+  display: grid;
+  grid-gap: var(--rect-gap);
+  grid-template-columns: repeat(2, auto);
+  width: 90vw;
 }
 
 /* https://github.com/afonsocrg/mementoMori/issues/1 - Added these lines to center the calendar in the middle of the screen but keep print layout as it is */
 @media screen {
-    #calendar {
-        margin: auto;
-        justify-content: center;
-    }
+  #calendar {
+    justify-content: center;
+    margin: auto;
+  }
 }
 
 .rect-container {
-    display: grid;
-    grid-gap: var(--week-gap);
-    grid-template-columns: repeat(var(--cols-per-rect), auto);
+  display: grid;
+  grid-gap: var(--week-gap);
+  grid-template-columns: repeat(var(--cols-per-rect), auto);
 }
 
 .week-cell {
-    width: var(--week-size);
-    height: var(--week-size);
-    border: 1px solid var(--dark-gray);
+  border: 1px solid var(--dark-gray);
+  height: var(--week-size);
+  width: var(--week-size);
 }

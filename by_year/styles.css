@@ -1,130 +1,130 @@
-  :root {
-    --rows-per-rect: 10;
-    --cols-per-rect: 26;
+:root {
+  --rows-per-rect: 10;
+  --cols-per-rect: 26;
 
-    --dark-gray: #333333;
-    --rect-gap: 8px;
-    --week-gap: 5px;
-    --week-size: 8px;
-  }
+  --dark-gray: #333;
+  --rect-gap: 8px;
+  --week-gap: 5px;
+  --week-size: 8px;
+}
 
-  body {
-    font-family: 'Inter', sans-serif;
-  }
+body {
+  font-family: Inter, sans-serif;
+}
 
-  @page {
-    size: A4 portrait;
-  }
+@page {
+  size: a4 portrait;
+}
 
-  @media print {
-    .week-cell {
-      -webkit-print-color-adjust: exact;
-    }
-  }
-
-  .title {
-    color: var(--dark-gray);
-    text-align: center;
-    margin: 60px 0;
-    font-size: 50px;
-    font-weight: 700;
-  }
-
-  #quote {
-    margin: 60px auto;
-    width: 100%;
-    max-width: 760px;
-  }
-
-  .calendar {
-    /* https://github.com/afonsocrg/mementoMori/issues/1 */
-    /*width: 0px;*/ /* make it fit its content. TODO: calculate it dynamically */
-    width: 100%;
-    max-width: 760px;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(10, auto);
-  }
-
-  /* https://github.com/afonsocrg/mementoMori/issues/1 - Added these lines to center the calendar in the middle of the screen but keep print layout as it is */
-  @media screen {
-    .calendar {
-      margin: auto;
-      justify-content: center;
-    }
-  }
-
-  .rect-container {
-    display: grid;
-    grid-gap: var(--week-gap);
-    grid-template-columns: repeat(var(--cols-per-rect), auto);
-  }
-
+@media print {
   .week-cell {
-    align-items: center;
-    border: 1px solid var(--dark-gray);
-    display: inline-flex;
-    height: var(--week-size);
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+.title {
+  color: var(--dark-gray);
+  font-size: 50px;
+  font-weight: 700;
+  margin: 60px 0;
+  text-align: center;
+}
+
+#quote {
+  margin: 60px auto;
+  max-width: 760px;
+  width: 100%;
+}
+
+.calendar {
+  /* https://github.com/afonsocrg/mementoMori/issues/1 */
+  /* width: 0px; */ /* make it fit its content. TODO: calculate it dynamically */
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(10, auto);
+  max-width: 760px;
+  width: 100%;
+}
+
+/* https://github.com/afonsocrg/mementoMori/issues/1 - Added these lines to center the calendar in the middle of the screen but keep print layout as it is */
+@media screen {
+  .calendar {
     justify-content: center;
-    width: var(--week-size);
+    margin: auto;
   }
+}
 
-  .year-cell {
-    display: grid;
-    gap: var(--week-gap);
-  }
+.rect-container {
+  display: grid;
+  grid-gap: var(--week-gap);
+  grid-template-columns: repeat(var(--cols-per-rect), auto);
+}
 
-  .month-cell {
-    display: grid;
-    grid-row-gap: var(--week-gap);
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
+.week-cell {
+  align-items: center;
+  border: 1px solid var(--dark-gray);
+  display: inline-flex;
+  height: var(--week-size);
+  justify-content: center;
+  width: var(--week-size);
+}
 
-  .year-label {
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-    margin: 0 0 8px;
-  }
+.year-cell {
+  display: grid;
+  gap: var(--week-gap);
+}
 
-  /* Tooltips */
-  [data-tooltip] {
-    position: relative;
-    cursor: default;
-  }
+.month-cell {
+  display: grid;
+  grid-row-gap: var(--week-gap);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 
-  [data-tooltip]:hover::before {
-    content: attr(data-tooltip);
-    font-size: 14px;
-    text-align: left;
-    position: absolute;
-    display: block;
-    left: 50%;
-    min-width: 60px;
-    max-width: 160px;
-    width: max-content;
-    bottom: calc(100% + 10px);
-    transform: translate(-50%);
-    animation: fade-in 300ms ease;
-    background: #272727;
-    border-radius: 4px;
-    padding: 10px 10px 14px;
-    color: #ffffff;
-    z-index: 1;
-  }
+.year-label {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  text-align: center;
+}
 
-  [data-tooltip]:hover::after {
-    content: "";
-    position: absolute;
-    display: block;
-    left: 50%;
-    width: 0;
-    height: 0;
-    bottom: calc(100% + 6px);
-    margin-left: -6px;
-    border: 1px solid black;
-    border-color: #272727 transparent transparent transparent;
-    border-width: 4px 6px 0;
-    animation: fade-in 300ms ease;
-    z-index: 1;
-  }
+/* Tooltips */
+[data-tooltip] {
+  cursor: default;
+  position: relative;
+}
+
+[data-tooltip]:hover::before {
+  animation: fade-in 300ms ease;
+  background-color: #272727;
+  border-radius: 4px;
+  bottom: calc(100% + 10px);
+  color: #fff;
+  content: attr(data-tooltip);
+  display: block;
+  font-size: 14px;
+  left: 50%;
+  max-width: 160px;
+  min-width: 60px;
+  padding: 10px 10px 14px;
+  position: absolute;
+  text-align: left;
+  transform: translate(-50%);
+  width: max-content;
+  z-index: 1;
+}
+
+[data-tooltip]:hover::after {
+  animation: fade-in 300ms ease;
+  border: 1px solid black;
+  border-color: #272727 transparent transparent;
+  border-width: 4px 6px 0;
+  bottom: calc(100% + 6px);
+  content: "";
+  display: block;
+  height: 0;
+  left: 50%;
+  margin-left: -6px;
+  position: absolute;
+  width: 0;
+  z-index: 1;
+}

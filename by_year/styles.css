@@ -34,8 +34,9 @@ body {
 
 #quote {
   margin: 60px auto;
-  max-width: 760px;
-  width: 100%;
+  max-width: 700px;
+  padding: 0 1rem;
+  width: calc(100% - 2rem);
 }
 
 .calendar {
@@ -64,7 +65,7 @@ body {
 
 .week-cell {
   align-items: center;
-  border: 1px solid var(--dark-gray);
+  border: 1px solid var(--color-dark-gray);
   display: inline-flex;
   height: var(--week-size);
   justify-content: center;
@@ -137,5 +138,28 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 740px) {
+  .calendar {
+    grid-template-columns: repeat(8, auto);
+  }
+}
+
+@media (max-width: 650px) {
+  .calendar {
+    grid-template-columns: repeat(6, auto);
+  }
+}
+
+@media (max-width: 500px) {
+  .calendar {
+    grid-template-columns: repeat(4, auto);
+  }
+
+  .title {
+    font-size: 32px;
   }
 }

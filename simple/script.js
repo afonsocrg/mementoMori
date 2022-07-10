@@ -39,7 +39,7 @@ function fill_calendar(bday) {
 function paint_week(num) {
     const week = document.getElementById(`week-${num}`);
     if (week != null) {
-        week.style.backgroundColor = get_css_variable("--dark-gray");
+        week.style.backgroundColor = get_css_variable("--color-dark-gray");
     }
 }
 

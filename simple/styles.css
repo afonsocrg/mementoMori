@@ -29,8 +29,10 @@
 }
 
 #quote {
-  float: footnote;
-  margin: 30px 20px 20px;
+  margin: 60px auto;
+  max-width: 880px;
+  padding: 0 1rem;
+  width: calc(100% - 2rem);
 }
 
 #calendar {

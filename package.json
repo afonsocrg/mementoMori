@@ -1,0 +1,25 @@
+{
+  "name": "mementomori",
+  "version": "1.0.0",
+  "description": "Small HTML5 that renders a Memento Mori Calendar",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afonsocrg/mementoMori.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afonsocrg/mementoMori/issues"
+  },
+  "homepage": "https://github.com/afonsocrg/mementoMori#readme",
+  "devDependencies": {
+    "stylelint": "^14.9.1",
+    "stylelint-config-recommended": "^8.0.0",
+    "stylelint-config-standard": "^26.0.0",
+    "stylelint-declaration-strict-value": "^1.8.0",
+    "stylelint-order": "^5.0.0"
+  }
+}

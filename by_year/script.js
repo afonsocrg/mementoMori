@@ -1,7 +1,7 @@
 /**
 * Fill calendar with year cells
 */
-function populate_calendar(baseYear, numYears) {
+function populate_calendar(birthday, numYears) {
     const root = document.getElementById("calendar");
 
     // remove every existing child first, just in case
@@ -9,13 +9,14 @@ function populate_calendar(baseYear, numYears) {
         root.children[0].remove();
     }
 
+    let baseYear = birthday.getFullYear();
     // spawn years
     for (let i = 0; i < numYears; i++) {
-        root.appendChild(spawn_year(baseYear + i));
+        root.appendChild(spawn_year(baseYear + i, birthday));
     }
 }
 
-function spawn_year(_year) {
+function spawn_year(_year, birthday) {
     let year_div = document.createElement("div");
     year_div.classList.add("year-wrapper");
 
@@ -31,10 +32,17 @@ function spawn_year(_year) {
     for(let i = 0; i < 12; i++) {
         let month_div = document.createElement("div");
         month_div.classList.add("month-cell");
+        let num_days_per_square = days_in_month(i+1, _year) / 4
         for(let j = 0; j < 4; j++) {
             week_div = document.createElement("div");
             week_div.id = `${_year}-${i+1}-${j+1}`;
             week_div.classList.add("week-cell");
+
+            let _ = new Date(_year, i, Math.floor((j+1)*num_days_per_square));
+
+            if(new Date(_year, i, Math.floor((j+1)*num_days_per_square)) < birthday) {
+                week_div.classList.add("invisible");
+            }
 
             month_div.appendChild(week_div);
         }
@@ -93,7 +101,7 @@ events = [
 
 
 let calendar = document.getElementById("calendar");
-populate_calendar(1990, 60);
+populate_calendar(new Date("1990-06-16"), 60);
 
 events.forEach(e => {
     write_life_event(e);

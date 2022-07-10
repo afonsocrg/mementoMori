@@ -71,13 +71,13 @@
 
   .year-cell {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: var(--week-gap);
   }
 
   .month-cell {
     display: grid;
     grid-row-gap: var(--week-gap);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
   .year-label {

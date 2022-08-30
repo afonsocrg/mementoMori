@@ -68,10 +68,16 @@ function get_week_id_from_date(date) {
 }
 
 function write_life_event(life_event) {
-    // console.log(life_event['date']);
     let id = get_week_id_from_date(life_event['date']);
-    console.log(id)
     week_div = document.getElementById(id);
+
+    if(week_div == null || week_div.classList.contains("invisible")) {
+        let y = life_event['date'].getFullYear();
+        let m = life_event['date'].getMonth() + 1;
+        let d = life_event['date'].getDate();
+        console.error(`Event "${life_event['description']}" has an invalid date (${y}-${m}-${d})`);
+        return;
+    }
 
     week_div.classList.add("has-tooltip");
 

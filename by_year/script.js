@@ -79,28 +79,45 @@ function write_life_event(life_event) {
         return;
     }
 
-    week_div.classList.add("has-tooltip");
+    week_div.style.backgroundColor = life_event['color'];
 
-    week_div.dataset.tooltip = life_event['description'];
-    week_div.insertAdjacentHTML('beforeend', life_event['icon']);
+    if('icon' in life_event) {
+        week_div.classList.add("has-tooltip");
+
+        week_div.dataset.tooltip = life_event['description'];
+        week_div.insertAdjacentHTML('beforeend', life_event['icon']);
+    }
 }
 
 
 events = [
+    /* event template:
+    {
+        'date': new Date("yyyy-mm-dd"),
+        'description': "The description of the event",
+        'color': "#888888",
+        // 'icon': "👍" // optional
+    }
+
+    */
     {
         'date': new Date("1990-02-05"),
         'description': "I was born",
+        'color': "#E1F5FE",
         'icon': "👶"
     },
     {
         'date': new Date("2011-05-13"),
         'description': "Started dating",
+        'color': "#FCE4EC",
         'icon': "♥️"
     },
     {
         'date': new Date("2012-06-30"),
         'description': "Graduated",
-        'icon': "🎓"
+        'color': "#039BE5",
+        // icons are now optional
+        // 'icon': "🎓"
     },
 ]
 

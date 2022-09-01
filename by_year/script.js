@@ -81,6 +81,11 @@ function write_life_event(life_event) {
 
     week_div.style.backgroundColor = life_event['color'];
 
+    if(week_div.style.backgroundColor) {
+      week_div.classList.add("has-tooltip");
+      week_div.dataset.tooltip = life_event['description'];
+    }
+  
     if('icon' in life_event) {
         week_div.classList.add("has-tooltip");
 

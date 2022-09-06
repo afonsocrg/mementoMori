@@ -68,6 +68,11 @@ function get_week_id_from_date(date) {
 }
 
 function write_life_event(life_event) {
+    // trim description
+    if(life_event['description'].length != null) {
+      life_event['description'] = life_event['description'].trim();
+    }
+
     let id = get_week_id_from_date(life_event['date']);
     week_div = document.getElementById(id);
 
@@ -81,15 +86,13 @@ function write_life_event(life_event) {
 
     week_div.style.backgroundColor = life_event['color'];
 
-    if(week_div.style.backgroundColor) {
+    // only add tooltip if has non-empty description
+    if(life_event['description'] != null && life_event['description'].length > 0) {
       week_div.classList.add("has-tooltip");
       week_div.dataset.tooltip = life_event['description'];
     }
   
     if('icon' in life_event) {
-        week_div.classList.add("has-tooltip");
-
-        week_div.dataset.tooltip = life_event['description'];
         week_div.insertAdjacentHTML('beforeend', life_event['icon']);
     }
 }

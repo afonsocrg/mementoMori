@@ -2,6 +2,7 @@
   --rows-per-rect: 10;
   --cols-per-rect: 26;
 
+  --color-background: #fff;
   --color-dark-gray: #333;
   --color-black: #000;
   --color-white: #fff;
@@ -12,6 +13,7 @@
 
 body {
   font-family: Inter, sans-serif;
+  background-color: var(--color-background);
 }
 
 @page {
@@ -70,6 +72,10 @@ body {
   height: var(--week-size);
   justify-content: center;
   width: var(--week-size);
+}
+
+.invisible {
+  border: 1px solid var(--color-background);
 }
 
 .year-cell {

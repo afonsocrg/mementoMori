@@ -120,3 +120,13 @@ function get_css_variable(name) {
         name
     );
 }
+document.getElementById("downloadBtn").addEventListener("click", () => {
+	html2canvas(document.querySelector(".content")).then((canvas) => {
+            let anchorTag = document.createElement("a");
+        	document.body.appendChild(anchorTag);
+            anchorTag.download = "mementoMori.png";
+            anchorTag.href = canvas.toDataURL();
+			anchorTag.target = '_blank';
+			anchorTag.click(); 
+		});
+ });

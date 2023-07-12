@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Memento Mori Calendar</title>
-    <meta name="description" content="The HTML5 Herald" />
-    <meta name="author" content="afonsocrg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-		<link rel="icon" href="../favicon.svg">
-    <link rel="stylesheet" href="styles.css">
-  </head>
 
-  <body>
+<head>
+  <meta charset="utf-8" />
+  <title>Memento Mori Calendar</title>
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="afonsocrg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="../favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+  <div class="content">
+    <div class="whitespace"></div>
     <div class="title">MEMENTO MORI</div>
 
     <!-- Will be filled by javascript later -->
@@ -30,7 +34,13 @@
         wasteful of it… Life is long if you know how to use it.” ~ Seneca
       </cite>
     </div>
+    <div class="whitespace"></div>
+  </div>
+  <div class="download">
+    <button id="downloadBtn">Download Calender!</button>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
   </body>
+
 </html>
